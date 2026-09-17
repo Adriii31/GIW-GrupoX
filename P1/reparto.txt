@@ -1,0 +1,13 @@
+Reparto Práctica 1
+    - Ejercicio 1:
+        - dimension -> Miguel Sevilla
+        - es_cuadrada -> Miguel Sevilla
+        - es_simetrica -> Izan de Vega
+        - multiplica_escalar -> Izan de Vega
+        - suma -> Miguel Sevilla
+    - Ejercicio 2:
+        - validar_grafo ->
+        - grado_entrada ->
+        - distancia -> 
+
+Plazo entrega -> 24 Septiembre

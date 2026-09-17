@@ -21,7 +21,7 @@ import copy
 #devuelve una tuple (filas, columnas) con el tamaño de la matriz. Si la matriz esta mal formada
 #debera devolver none
 def dimension(matriz):
-    if len(matriz) == 0:
+    if len(matriz) == 0 or matriz is None:
         return None
     filas = len(matriz)
     columnas = len(matriz[0])
@@ -75,7 +75,16 @@ def multiplica_escalar(matriz, k):
 
 
 def suma(matriz1, matriz2):
-    ...
+    d1 = dimension(matriz1)
+    d2 = dimension(matriz2)
+    #Comprobar que encaja la dimension de ambas
+    if  d1 == d2:
+        #Nueva matriz a la que se le suman las otras dos 
+        matriz3 = [[matriz1[i][j] * matriz2[i][j] for j in range(len(matriz1[0]))] for i in range(len(matriz1))]  
+        return matriz3        
+    else:
+        return None
+        
 
 
 # Ejercicio 2
@@ -90,14 +99,20 @@ def distancia(grafo, nodo):
    
 
 if __name__ == "__main__":
-    matriz = [
-        [1,2,3],
-        [4,5,6],
-        [7,8,9]
-    ]
-    print(matriz)
-    print(dimension(matriz))
-    print(es_cuadrada(matriz))
-    print(es_simetrica(matriz))
-    print(multiplica_escalar(matriz,2))
-    print(matriz)
+    # --- PRUEBAS DEL EJERCICIO 1: MATRICES ---
+    print("--- EJERCICIO 1 ---")
+    matriz_normal = [[1, 2, 3], [4, 5, 6]]
+    matriz_cuadrada = [[1, 2], [3, 4]]
+    matriz_mal_formada = [[1, 2], [3, 4, 5]]
+    matriz_simetrica = [[1, 2], [2, 1]]
+    
+    # Funciones implementadas
+    print(f"Dimensión matriz_normal: {dimension(matriz_normal)}")            # (2, 3)
+    print(f"Dimensión matriz_mal_formada: {dimension(matriz_mal_formada)}")  # None
+    print(f"Es cuadrada matriz_cuadrada: {es_cuadrada(matriz_cuadrada)}")    # True
+    print(f"Es cuadrada matriz_normal: {es_cuadrada(matriz_normal)}")        # False
+
+    # Descomenta estas líneas conforme vayas programando las funciones
+    # print(f"Es simétrica: {es_simetrica(matriz_simetrica)}")
+    # print(f"Multiplica escalar x2: {multiplica_escalar(matriz_normal, 2)}")
+    print(f"Suma de matrices: {suma(matriz_cuadrada, matriz_simetrica)}")
