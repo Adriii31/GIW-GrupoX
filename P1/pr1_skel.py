@@ -14,6 +14,7 @@ deshonesta ninguna otra actividad que pueda mejorar nuestros resultados ni perju
 resultados de los demás.
 """
 
+import copy
 
 # Ejercicio 1
 
@@ -45,10 +46,33 @@ def es_cuadrada(matriz):
         return False
 
 def es_simetrica(matriz):
-    ...
+    if(not es_cuadrada(matriz)):
+        return False
+    
+    # Comprobamos que todos los elementos en el lado inferior izquierdo de la división producida por la diagonal coinciden con aquellos en su posición simétrica en función de dicha diagonal
+    y = 1
+    while(y < len(matriz)):
+        x = 0
+        while(x < y):
+            if(matriz[x][y] != matriz[y][x]):
+                return False
+            x += 1
+        y += 1
+
+    return True
+
 
 def multiplica_escalar(matriz, k):
-    ...
+    if(dimension is None):
+        return None
+
+    return_value = copy.deepcopy(matriz)
+    for y_idx in range(len(return_value)):
+        for x_idx in range(len(return_value[y_idx])):
+            return_value[y_idx][x_idx] *= k
+
+    return return_value
+
 
 def suma(matriz1, matriz2):
     ...
@@ -64,3 +88,16 @@ def grado_entrada(grafo, nodo):
 def distancia(grafo, nodo):
     ...
    
+
+if __name__ == "__main__":
+    matriz = [
+        [1,2,3],
+        [4,5,6],
+        [7,8,9]
+    ]
+    print(matriz)
+    print(dimension(matriz))
+    print(es_cuadrada(matriz))
+    print(es_simetrica(matriz))
+    print(multiplica_escalar(matriz,2))
+    print(matriz)
