@@ -9,3 +9,5 @@ Reparto Práctica 1
         - validar_grafo ->
         - grado_entrada ->
         - distancia -> 
+
+Plazo entrega -> 24 Septiembre
