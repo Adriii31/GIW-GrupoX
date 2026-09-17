@@ -1,5 +1,5 @@
 Reparto Práctica 1
-    - Ejercicio 1: (Status: Done, falta testeo)
+    - Ejercicio 1: (Status: Done, falta más testeo)
         - dimension -> Miguel Sevilla
         - es_cuadrada -> Miguel Sevilla
         - es_simetrica -> Izan de Vega
@@ -10,6 +10,6 @@ Reparto Práctica 1
         - grado_entrada ->
         - distancia -> 
     - Ejercicio 3:
-        - pylin ->
+        - pasarle pylin al fichero ->
 
 Plazo entrega -> 24 Septiembre
