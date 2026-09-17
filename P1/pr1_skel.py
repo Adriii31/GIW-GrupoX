@@ -51,7 +51,16 @@ def multiplica_escalar(matriz, k):
     ...
 
 def suma(matriz1, matriz2):
-    ...
+    d1 = dimension(matriz1)
+    d2 = dimension(matriz2)
+    #Comprobar que encaja la dimension de ambas
+    if  d1 == d2:
+        #Nueva matriz a la que se le suman las otras dos 
+        matriz3 = [[matriz1[i][j] * matriz2[i][j] for j in range(len(matriz1[0]))] for i in range(len(matriz1))]
+          
+    else:
+        return None
+        
 
 
 # Ejercicio 2
