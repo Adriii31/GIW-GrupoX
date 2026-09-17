@@ -1,13 +1,15 @@
 Reparto Práctica 1
-    - Ejercicio 1:
+    - Ejercicio 1: (Status: Done, falta testeo)
         - dimension -> Miguel Sevilla
         - es_cuadrada -> Miguel Sevilla
         - es_simetrica -> Izan de Vega
         - multiplica_escalar -> Izan de Vega
         - suma -> Miguel Sevilla
-    - Ejercicio 2:
+    - Ejercicio 2: Fecha limite: 20/09 (sugerencia: 1 x persona de los restantes)
         - validar_grafo ->
         - grado_entrada ->
         - distancia -> 
+    - Ejercicio 3:
+        - pylin ->
 
 Plazo entrega -> 24 Septiembre

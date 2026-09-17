@@ -1,10 +1,8 @@
 """
-TODO: rellenar
-
 Asignatura: GIW
 Práctica 1
-Grupo: XXXXXXX
-Autores: XXXXXX 
+Grupo: 10
+Autores: Miguel Sevilla Benito, Izan de Vega López
 
 Declaramos que esta solución es fruto exclusivamente de nuestro trabajo personal. No hemos
 sido ayudados por ninguna otra persona o sistema automático ni hemos obtenido la solución
@@ -49,7 +47,11 @@ def es_simetrica(matriz):
     if(not es_cuadrada(matriz)):
         return False
     
-    # Comprobamos que todos los elementos en el lado inferior izquierdo de la división producida por la diagonal coinciden con aquellos en su posición simétrica en función de dicha diagonal
+    # Will check:
+    # - a b d
+    # a - c e
+    # b c - f
+    # d e f -
     y = 1
     while(y < len(matriz)):
         x = 0
@@ -63,7 +65,7 @@ def es_simetrica(matriz):
 
 
 def multiplica_escalar(matriz, k):
-    if(dimension is None):
+    if((dimension is None) or (k is None)):
         return None
 
     return_value = copy.deepcopy(matriz)
@@ -77,10 +79,10 @@ def multiplica_escalar(matriz, k):
 def suma(matriz1, matriz2):
     d1 = dimension(matriz1)
     d2 = dimension(matriz2)
-    #Comprobar que encaja la dimension de ambas
-    if  d1 == d2:
+    #Comprobar que encaja la dimension de ambas y que ambas están bien formadas
+    if  d1 == d2 and (not d1 is None):
         #Nueva matriz a la que se le suman las otras dos 
-        matriz3 = [[matriz1[i][j] * matriz2[i][j] for j in range(len(matriz1[0]))] for i in range(len(matriz1))]  
+        matriz3 = [[matriz1[i][j] + matriz2[i][j] for j in range(len(matriz1[0]))] for i in range(len(matriz1))]  
         return matriz3        
     else:
         return None
@@ -98,19 +100,28 @@ def distancia(grafo, nodo):
     ...
    
 
+# Only for testing
 if __name__ == "__main__":
     # --- PRUEBAS DEL EJERCICIO 1: MATRICES ---
     print("--- EJERCICIO 1 ---")
     matriz_normal = [[1, 2, 3], [4, 5, 6]]
     matriz_cuadrada = [[1, 2], [3, 4]]
     matriz_mal_formada = [[1, 2], [3, 4, 5]]
-    matriz_simetrica = [[1, 2], [2, 1]]
+    matriz_no_simetrica = [[1, 1, 3], [2,2,3], [3,3,3]]
+    matriz_simetrica = [[1, 2, 3], [2,5,2], [3,2,3]]
     
     # Funciones implementadas
     print(f"Dimensión matriz_normal: {dimension(matriz_normal)}")            # (2, 3)
     print(f"Dimensión matriz_mal_formada: {dimension(matriz_mal_formada)}")  # None
     print(f"Es cuadrada matriz_cuadrada: {es_cuadrada(matriz_cuadrada)}")    # True
     print(f"Es cuadrada matriz_normal: {es_cuadrada(matriz_normal)}")        # False
+
+    print(f"Es simetrica matriz_simetrica: {es_simetrica(matriz_simetrica)}") # True
+    print(f"Es simetrica matriz_no_simetrica: {es_simetrica(matriz_no_simetrica)}") # False
+    print(f"Es simetrica matriz_normal: {es_simetrica(matriz_normal)}") # False
+
+    print(f"Suma matriz_normal + matriz_normal: {suma(matriz_normal,matriz_normal)}") # Same as below
+    print(f"Multiplicación 2* matriz_normal: {multiplica_escalar(matriz_normal,2)}") # Same as above
 
     # Descomenta estas líneas conforme vayas programando las funciones
     # print(f"Es simétrica: {es_simetrica(matriz_simetrica)}")
