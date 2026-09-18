@@ -121,17 +121,17 @@ if __name__ == "__main__":
     matriz_simetrica = [[1, 2, 3], [2,5,2], [3,2,3]]
     
     # Funciones implementadas
-    print(f"Dimensión matriz_normal: {dimension(matriz_normal)}")            # (2, 3)
-    print(f"Dimensión matriz_mal_formada: {dimension(matriz_mal_formada)}")  # None
-    print(f"Es cuadrada matriz_cuadrada: {es_cuadrada(matriz_cuadrada)}")    # True
-    print(f"Es cuadrada matriz_normal: {es_cuadrada(matriz_normal)}")        # False
+    print(f"Dimensión matriz_normal: {dimension(matriz_normal)}")            
+    print(f"Dimensión matriz_mal_formada: {dimension(matriz_mal_formada)}")  
+    print(f"Es cuadrada matriz_cuadrada: {es_cuadrada(matriz_cuadrada)}")    
+    print(f"Es cuadrada matriz_normal: {es_cuadrada(matriz_normal)}")        
 
-    print(f"Es simetrica matriz_simetrica: {es_simetrica(matriz_simetrica)}") # True
-    print(f"Es simetrica matriz_no_simetrica: {es_simetrica(matriz_no_simetrica)}") # False
-    print(f"Es simetrica matriz_normal: {es_simetrica(matriz_normal)}") # False
+    print(f"Es simetrica matriz_simetrica: {es_simetrica(matriz_simetrica)}") 
+    print(f"Es simetrica matriz_no_simetrica: {es_simetrica(matriz_no_simetrica)}") 
+    print(f"Es simetrica matriz_normal: {es_simetrica(matriz_normal)}") 
 
-    print(f"Suma matriz_normal + matriz_normal: {suma(matriz_normal,matriz_normal)}") # Same as below
-    print(f"Multiplicación 2* matriz_normal: {multiplica_escalar(matriz_normal,2)}") # Same as above
+    print(f"Suma matriz_normal + matriz_normal: {suma(matriz_normal,matriz_normal)}") 
+    print(f"Multiplicación 2* matriz_normal: {multiplica_escalar(matriz_normal,2)}") 
 
     print(f"Es simétrica: {es_simetrica(matriz_simetrica)}")
     print(f"Multiplica escalar x2: {multiplica_escalar(matriz_normal, 2)}")
