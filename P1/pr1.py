@@ -79,13 +79,24 @@ def multiplica_escalar(matriz, k):
 def suma(matriz1, matriz2):
     d1 = dimension(matriz1)
     d2 = dimension(matriz2)
-    #Comprobar que encaja la dimension de ambas y que ambas están bien formadas
-    if  d1 == d2 and (not d1 is None):
-        #Nueva matriz a la que se le suman las otras dos 
-        matriz3 = [[matriz1[i][j] + matriz2[i][j] for j in range(len(matriz1[0]))] for i in range(len(matriz1))]  
-        return matriz3        
-    else:
+
+    # Comprobar que las matrices están bien formadas
+    # y tienen la misma dimensión
+    if d1 is None or d2 is None or d1 != d2:
         return None
+
+    matriz3 = []
+
+    for i in range(len(matriz1)):
+        fila = []
+
+        for j in range(len(matriz1[i])):
+            resultado = matriz1[i][j] + matriz2[i][j]
+            fila.append(resultado)
+
+        matriz3.append(fila)
+
+    return matriz3
         
 
 
@@ -100,9 +111,8 @@ def distancia(grafo, nodo):
     ...
    
 
-# Only for testing
+
 if __name__ == "__main__":
-    # --- PRUEBAS DEL EJERCICIO 1: MATRICES ---
     print("--- EJERCICIO 1 ---")
     matriz_normal = [[1, 2, 3], [4, 5, 6]]
     matriz_cuadrada = [[1, 2], [3, 4]]
@@ -123,7 +133,5 @@ if __name__ == "__main__":
     print(f"Suma matriz_normal + matriz_normal: {suma(matriz_normal,matriz_normal)}") # Same as below
     print(f"Multiplicación 2* matriz_normal: {multiplica_escalar(matriz_normal,2)}") # Same as above
 
-    # Descomenta estas líneas conforme vayas programando las funciones
-    # print(f"Es simétrica: {es_simetrica(matriz_simetrica)}")
-    # print(f"Multiplica escalar x2: {multiplica_escalar(matriz_normal, 2)}")
-    print(f"Suma de matrices: {suma(matriz_cuadrada, matriz_simetrica)}")
+    print(f"Es simétrica: {es_simetrica(matriz_simetrica)}")
+    print(f"Multiplica escalar x2: {multiplica_escalar(matriz_normal, 2)}")
