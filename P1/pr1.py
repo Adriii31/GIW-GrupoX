@@ -2,7 +2,7 @@
 Asignatura: GIW
 Práctica 1
 Grupo: 10
-Autores: Miguel Sevilla Benito, Izan de Vega López, Adrián Muñoz Rodríguez
+Autores: Miguel Sevilla Benito, Izan de Vega López, Adrián Muñoz Rodríguez, Israel Suárez Fraile
 
 Declaramos que esta solución es fruto exclusivamente de nuestro trabajo personal. No hemos
 sido ayudados por ninguna otra persona o sistema automático ni hemos obtenido la solución
@@ -151,7 +151,14 @@ def validar(grafo):
     
 
 def grado_entrada(grafo, nodo):
-    ...
+    if not validar(grafo) or nodo not in grafo["nodos"]:
+        return -1
+
+    num_entradas = 0
+    for destinos in grafo["aristas"].values():
+        if nodo in destinos:
+            num_entradas += 1
+    return num_entradas
 
 def distancia(grafo, nodo):
     """Calcula las distancias mínimas desde un nodo a todos los demás en el grafo.
@@ -227,4 +234,11 @@ if __name__ == "__main__":
     print(f"Es valida: {validar({"nodos" : [], "aristas":{}})}")
     print(f"Es valida: {validar({"nodos" : [1,2], "aristas":{1:[2], 2: [2,2]}})}")
     print(f"Es valida: {validar({"nodos" : [1,2], "aristas":{1:[], 2: []}})}")
+    # 6. Prueba del grado de entrada
+    print(f"Grado entrada(g, 'a'):", grado_entrada(g, "a"))
+    print(f"Grado entrada(g, 'd'):", grado_entrada(g, "d"))
+    print(f"Grado entrada(g, 'Z'):", grado_entrada(g, "Z"))
+    print("Grado entrada({'nodos': [1,2], 'aristas': {1: [2]}}, '2'):", grado_entrada({"nodos": [1, 2], "aristas": {1: [2]}}, "2"))
+
+
     
