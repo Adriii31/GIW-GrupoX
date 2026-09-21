@@ -6,7 +6,7 @@ Reparto Práctica 1
         - multiplica_escalar -> Izan de Vega
         - suma -> Miguel Sevilla
     - Ejercicio 2: Fecha limite: 20/09 (sugerencia: 1 x persona de los restantes)
-        - validar_grafo ->
+        - validar_grafo -> Oier Osorio
         - grado_entrada ->
         - distancia -> 
     - Ejercicio 3:
