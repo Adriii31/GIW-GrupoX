@@ -152,7 +152,8 @@ def validar(grafo):
 
 def grado_entrada(grafo, nodo):
     """Calcula el grado de entrada de un nodo en el grafo.
-    Devuelve el numero de aristas que apuntan a ese nodo o -1 si el grafo no es válido o el nodo no existe"""
+    Devuelve el numero de aristas que apuntan a ese nodo
+    o -1 si el grafo no es válido o el nodo no existe"""
     if not validar(grafo) or nodo not in grafo["nodos"]:
         return -1
 
@@ -240,7 +241,8 @@ if __name__ == "__main__":
     print("Grado entrada(g, 'a'):", grado_entrada(g, "a"))
     print("Grado entrada(g, 'd'):", grado_entrada(g, "d"))
     print("Grado entrada(g, 'Z'):", grado_entrada(g, "Z"))
-    print(f"Grado entrada({'nodos': [1,2], 'aristas': {1: [2]}}, '2'):", grado_entrada({"nodos": [1, 2], "aristas": {1: [2]}}, "2"))
+    print("Grado entrada({'nodos': [1,2], 'aristas': {1: [2]}}, '2'):",
+          grado_entrada({"nodos": [1, 2], "aristas": {1: [2]}}, "2"))
 
 
     
