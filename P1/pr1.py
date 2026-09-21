@@ -102,7 +102,53 @@ def suma(matriz1, matriz2):
 
 # Ejercicio 2
 def validar(grafo):
-    ...
+    if grafo is None:
+        return False
+
+    if not ("nodos" in grafo and "aristas" in grafo):
+        return False
+
+    #nodos no vacios y sin repetir
+    nodos = set()
+    lista_nodos = grafo.get("nodos")
+    if len(lista_nodos)==0:
+        return False
+    for elem in lista_nodos:
+        if not(elem in nodos):
+            nodos.add(elem)
+        else:
+            return False
+
+    #n origen exactamente los de nodos
+    copia_nodos = set(nodos)
+    nodos_origen = grafo.get("aristas").keys()
+    for elem in nodos_origen:
+        if not(elem in nodos):
+            return False
+        else:
+            copia_nodos.remove(elem)
+
+    if not(nodos_origen==nodos and len(copia_nodos)==0):
+        return False
+
+    #n destino aparecen en nodos y no repetidos
+    #Guarda los valores que vayan apareciendo en el set, si hay uno nuevo que ya esta ahi es repetido por lo que no es valido
+    #Ademas, comprueba que los nodos a los que apuntan existan tambien
+    aparecidos = set()
+    for lista in grafo.get("aristas").values():
+        aparecidos.clear()
+        for elem in lista:
+            if elem in aparecidos or not(elem in nodos):
+                return False
+            else:
+                aparecidos.add(elem)
+
+    return True
+    
+        
+            
+
+    
 
 def grado_entrada(grafo, nodo):
     ...
@@ -175,4 +221,10 @@ if __name__ == "__main__":
     print("distancia(g, 'd'):", distancia(g, "d"))
     # 4. Prueba con un nodo que no existe
     print("distancia(g, 'Z'):", distancia(g, "Z"))
+    # 5. prueba validar
+    print(f"Es valida: {validar(g)}")
+    print(f"Es valida: {validar({"nodos" : [1,2], "aristas":{1:[2], 2:[2]}})}")
+    print(f"Es valida: {validar({"nodos" : [], "aristas":{}})}")
+    print(f"Es valida: {validar({"nodos" : [1,2], "aristas":{1:[2], 2: [2,2]}})}")
+    print(f"Es valida: {validar({"nodos" : [1,2], "aristas":{1:[], 2: []}})}")
     
