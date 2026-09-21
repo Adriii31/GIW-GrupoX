@@ -2,7 +2,7 @@
 Asignatura: GIW
 Práctica 1
 Grupo: 10
-Autores: Miguel Sevilla Benito, Izan de Vega López
+Autores: Miguel Sevilla Benito, Izan de Vega López, Adrián Muñoz Rodríguez
 
 Declaramos que esta solución es fruto exclusivamente de nuestro trabajo personal. No hemos
 sido ayudados por ninguna otra persona o sistema automático ni hemos obtenido la solución
@@ -108,7 +108,28 @@ def grado_entrada(grafo, nodo):
     ...
 
 def distancia(grafo, nodo):
-    ...
+    """Calcula las distancias mínimas desde un nodo a todos los demás en el grafo.
+    Devuelve un diccionario {nodo: distancia}. Si un nodo no es alcanzable, distancia = -1.
+    Si el grafo no es válido o el nodo no existe devuelve None."""
+
+    if not validar(grafo) or nodo not in grafo["nodos"]:
+        return None
+
+    dist = {}  #diccionario vacío donde se irán guardando las parejas
+
+    for nodo_actual in grafo["nodos"]:
+        dist[nodo_actual] = -1  #indica por defecto que el nodo aún no ha sido visitado o no es alcanzable
+
+    dist[nodo] = 0 #la distancia de un nodo a sí mismo es 0
+    cola = [nodo]
+
+    while cola:
+        actual = cola.pop(0)
+        for vecino in grafo["aristas"][actual]:
+            if dist[vecino] == -1:
+                dist[vecino] = dist[actual] + 1
+                cola.append(vecino)
+    return dist
    
 
 
@@ -135,3 +156,23 @@ if __name__ == "__main__":
 
     print(f"Es simétrica: {es_simetrica(matriz_simetrica)}")
     print(f"Multiplica escalar x2: {multiplica_escalar(matriz_normal, 2)}")
+
+    print("\n--- EJERCICIO 2 ---")
+    # Grafo de prueba
+    g = {"nodos": ["a", "b", "c", "d"],
+      "aristas": {"a": ["a", "b", "c"],
+                   "b": ["a", "c"],
+                   "c": ["c"],
+                   "d": ["c"]
+                    }
+        }
+    
+    # 1. Prueba desde a
+    print("distancia(g, 'a'):", distancia(g, "a"))
+    # 2. Prueba desde el nodo b
+    print("distancia(g, 'b'):", distancia(g, "b"))
+    # 3. Prueba desde el nodo d
+    print("distancia(g, 'd'):", distancia(g, "d"))
+    # 4. Prueba con un nodo que no existe
+    print("distancia(g, 'Z'):", distancia(g, "Z"))
+    
