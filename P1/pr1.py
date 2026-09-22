@@ -23,40 +23,44 @@ def dimension(matriz):
         return None
     filas = len(matriz)
     columnas = len(matriz[0])
-    
+
     for fila in matriz:
         if len(fila) != columnas:
             return None
-    
+
     return (filas, columnas)
 
 def es_cuadrada(matriz):
     tamanio = dimension(matriz)
 
-    if tamanio == None:
+    if tamanio is None:
         return False
     filas = tamanio[0]
     columnas = tamanio[1]
-    
+
     if filas == columnas:
         return True
-    else:
-        return False
+    return False
 
 def es_simetrica(matriz):
-    if(not es_cuadrada(matriz)):
+    """Devuelve True si la matriz es valida y cuadrada
+    y adiccionalmente para cada posición ij en la matriz
+    el elemento en la posición ji es equivalente. 
+    Devuelve False en cualquier otro caso."""
+
+    if not es_cuadrada(matriz):
         return False
-    
+
     # Will check:
     # - a b d
     # a - c e
     # b c - f
     # d e f -
     y = 1
-    while(y < len(matriz)):
+    while y < len(matriz):
         x = 0
-        while(x < y):
-            if(matriz[x][y] != matriz[y][x]):
+        while x < y:
+            if matriz[x][y] != matriz[y][x]:
                 return False
             x += 1
         y += 1
@@ -65,13 +69,17 @@ def es_simetrica(matriz):
 
 
 def multiplica_escalar(matriz, k):
+    '''Multiplica todos los elementos de la matriz por un escalar.
+    De tal forma que después de esta operación cada elemento ij de la matriz
+    es ahora equivalente a k*ij
+    Devuelve None si la matriz tiene dimensiones válidas y la dimensión de cada columna es igual'''
     if((dimension is None) or (k is None)):
         return None
 
     return_value = copy.deepcopy(matriz)
-    for y_idx in range(len(return_value)):
-        for x_idx in range(len(return_value[y_idx])):
-            return_value[y_idx][x_idx] *= k
+    for i,array in enumerate(return_value):
+        for j,elem in enumerate(array):
+            return_value[i][j] *= k
 
     return return_value
 
@@ -97,7 +105,7 @@ def suma(matriz1, matriz2):
         matriz3.append(fila)
 
     return matriz3
-        
+
 
 
 # Ejercicio 2
@@ -114,7 +122,7 @@ def validar(grafo):
     if len(lista_nodos)==0:
         return False
     for elem in lista_nodos:
-        if not(elem in nodos):
+        if not elem in nodos:
             nodos.add(elem)
         else:
             return False
@@ -123,25 +131,24 @@ def validar(grafo):
     copia_nodos = set(nodos)
     nodos_origen = grafo.get("aristas").keys()
     for elem in nodos_origen:
-        if not(elem in nodos):
+        if not elem in nodos:
             return False
-        else:
-            copia_nodos.remove(elem)
+        copia_nodos.remove(elem)
 
     if not(nodos_origen==nodos and len(copia_nodos)==0):
         return False
 
-    #n destino aparecen en nodos y no repetidos
-    #Guarda los valores que vayan apareciendo en el set, si hay uno nuevo que ya esta ahi es repetido por lo que no es valido
-    #Ademas, comprueba que los nodos a los que apuntan existan tambien
+    # n destino aparecen en nodos y no repetidos
+    # Guarda los valores que vayan apareciendo en el set, si hay 
+    # uno nuevo que ya esta ahi es repetido por lo que no es valido
+    # Ademas, comprueba que los nodos a los que apuntan existan tambien
     aparecidos = set()
     for lista in grafo.get("aristas").values():
         aparecidos.clear()
         for elem in lista:
             if elem in aparecidos or not(elem in nodos):
                 return False
-            else:
-                aparecidos.add(elem)
+            aparecidos.add(elem)
 
     return True
     
@@ -174,7 +181,8 @@ def distancia(grafo, nodo):
     dist = {}  #diccionario vacío donde se irán guardando las parejas
 
     for nodo_actual in grafo["nodos"]:
-        dist[nodo_actual] = -1  #indica por defecto que el nodo aún no ha sido visitado o no es alcanzable
+        #indica por defecto que el nodo aún no ha sido visitado o no es alcanzable
+        dist[nodo_actual] = -1  
 
     dist[nodo] = 0 #la distancia de un nodo a sí mismo es 0
     cola = [nodo]

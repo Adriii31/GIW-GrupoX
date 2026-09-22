@@ -11,5 +11,7 @@ Reparto Práctica 1
         - distancia -> 
     - Ejercicio 3:
         - pasarle pylin al fichero ->
+            - es_simetrica -> Izan de Vega
+            - multiplica_escalar -> Izan de Vega
 
 Plazo entrega -> 24 Septiembre
