@@ -12,7 +12,7 @@ deshonesta ninguna otra actividad que pueda mejorar nuestros resultados ni perju
 resultados de los demás.
 """
 
-import copy
+from copy import deepcopy
 
 # Ejercicio 1
 
@@ -76,7 +76,7 @@ def multiplica_escalar(matriz, k):
     if((dimension is None) or (k is None)):
         return None
 
-    return_value = copy.deepcopy(matriz)
+    return_value = deepcopy(matriz)
     for i,array in enumerate(return_value):
         for j,_ in enumerate(array):
             return_value[i][j] *= k
