@@ -78,7 +78,7 @@ def multiplica_escalar(matriz, k):
 
     return_value = copy.deepcopy(matriz)
     for i,array in enumerate(return_value):
-        for j,elem in enumerate(array):
+        for j,_ in enumerate(array):
             return_value[i][j] *= k
 
     return return_value
