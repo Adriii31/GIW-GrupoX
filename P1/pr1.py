@@ -12,8 +12,6 @@ deshonesta ninguna otra actividad que pueda mejorar nuestros resultados ni perju
 resultados de los demás.
 """
 
-from copy import deepcopy
-
 # Ejercicio 1
 
 #devuelve una tuple (filas, columnas) con el tamaño de la matriz. Si la matriz esta mal formada
@@ -76,10 +74,7 @@ def multiplica_escalar(matriz, k):
     if((dimension is None) or (k is None)):
         return None
 
-    return_value = deepcopy(matriz)
-    for i,array in enumerate(return_value):
-        for j,_ in enumerate(array):
-            return_value[i][j] *= k
+    return_value = [[elem*k for elem in linea] for linea in matriz]
 
     return return_value
 
