@@ -13,5 +13,6 @@ Reparto Práctica 1
         - pasarle pylin al fichero ->
             - es_simetrica -> Izan de Vega
             - multiplica_escalar -> Izan de Vega
+            - validar -> Oier Osorio
 
 Plazo entrega -> 24 Septiembre
