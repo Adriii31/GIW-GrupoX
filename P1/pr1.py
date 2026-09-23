@@ -172,7 +172,7 @@ def distancia(grafo, nodo):
 
     for nodo_actual in grafo["nodos"]:
         #indica por defecto que el nodo aún no ha sido visitado o no es alcanzable
-        dist[nodo_actual] = -1  
+        dist[nodo_actual] = -1
 
     dist[nodo] = 0 #la distancia de un nodo a sí mismo es 0
     cola = [nodo]
@@ -184,7 +184,6 @@ def distancia(grafo, nodo):
                 dist[vecino] = dist[actual] + 1
                 cola.append(vecino)
     return dist
-   
 
 
 if __name__ == "__main__":
