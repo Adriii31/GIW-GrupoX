@@ -2,7 +2,8 @@
 Asignatura: GIW
 Práctica 1
 Grupo: 10
-Autores: Miguel Sevilla Benito, Izan de Vega López, Adrián Muñoz Rodríguez, Israel Suárez Fraile, Oier Osorio Illarramendi
+Autores: Miguel Sevilla Benito, Izan de Vega López,
+            Adrián Muñoz Rodríguez, Israel Suárez Fraile, Oier Osorio Illarramendi
 
 Declaramos que esta solución es fruto exclusivamente de nuestro trabajo personal. No hemos
 sido ayudados por ninguna otra persona o sistema automático ni hemos obtenido la solución
@@ -219,7 +220,6 @@ if __name__ == "__main__":
                    "d": ["c"]
                     }
         }
-    
     # 1. Prueba desde a
     print("distancia(g, 'a'):", distancia(g, "a"))
     # 2. Prueba desde el nodo b
@@ -242,6 +242,3 @@ if __name__ == "__main__":
     print("Grado entrada(g, 'Z'):", grado_entrada(g, "Z"))
     print("Grado entrada({'nodos': [1,2], 'aristas': {1: [2]}}, '2'):",
           grado_entrada({"nodos": [1, 2], "aristas": {1: [2]}}, "2"))
-
-
-    

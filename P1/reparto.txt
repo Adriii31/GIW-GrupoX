@@ -14,5 +14,6 @@ Reparto Práctica 1
             - es_simetrica -> Izan de Vega
             - multiplica_escalar -> Izan de Vega
             - validar -> Oier Osorio
+            - grado_entrada -> Israel Suarez
 
 Plazo entrega -> 24 Septiembre
